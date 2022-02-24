@@ -27,6 +27,7 @@ import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.table.DefaultTableModel;
 
 public class VentanaMostrarInfractores extends JFrame {
 
@@ -66,6 +67,21 @@ public class VentanaMostrarInfractores extends JFrame {
 		panel.add(scrollPane, "cell 0 1,grow");
 		
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"dni", "nombre", "apellidos", "antiguedad", "sancion", "puntos"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, Object.class, Integer.class, Float.class, Integer.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();
@@ -80,6 +96,12 @@ public class VentanaMostrarInfractores extends JFrame {
 		});
 		panel_1.add(btnNewButton);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	}
+
+
+	public void setControlador(Controlador controlador) {
+		this.controlador=controlador;
+		
 	}
 
 

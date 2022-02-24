@@ -8,7 +8,11 @@ package uf2181;
  *
  */
 public class FuncionesDGT {
-
+/**
+ * función que calcula la media de los puntos indicados por parámero
+ * @param puntos int lo introducimos por parámetro
+ * @return double la suma de todos los elementos recorridos dividida por lospuntos
+ */
 	public double mediaPuntos(int puntos[]) {
 		double suma = 0;
 		
@@ -18,7 +22,12 @@ public class FuncionesDGT {
 		if (puntos.length==0) throw new ArrayIndexOutOfBoundsException();
 		return suma/puntos.length;
 	}
-	
+	/**
+	 * indica la máxima tasa permitida según el tipo deconductor y la tasa en aire
+	 * @param tipoConductor String dato por parámetro
+	 * @param aire boolean dado por parámetro
+	 * @return double devuelve el máximo de alcohol permitido
+	 */
 	public double maximaTasaPermitida(String tipoConductor, boolean aire) {
 		double tasa=0.25;
 		if (tipoConductor.equalsIgnoreCase("General")) {
